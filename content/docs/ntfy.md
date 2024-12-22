@@ -17,7 +17,7 @@ You can also protect your topic with a username/password or an API token (see [n
 
 ![Integration Settings](/images/ntfy_integration_settings.png)
 
-Optionally, you can add an icon (compatible with Android only). Feel free to use a Noflux icon served by GitHub Pages, for example: `https://noflux.nostr.technology/logo/original/favicon-32-bg-white.png`.
+Optionally, you can add an icon (compatible with Android only). Feel free to use a Noflux icon served by GitHub Pages, for example: `https://noflux.nostr.technology/favicon.ico`.
 
 To avoid unnecessary requests, make sure to enable push notifications explicitly for each feed.
 
