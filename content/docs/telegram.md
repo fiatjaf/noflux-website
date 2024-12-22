@@ -22,10 +22,10 @@ Retrieve the chat ID from the message. You can stop or remove the bot after obta
 
 Now, invite your bot to your channel or group, or send a message to it if you want to push the message to your direct message chat.
 
-Miniflux Configuration
+Noflux Configuration
 ----------------------
 
-Fill in the values collected above, enable the Telegram bot integration in Miniflux, and new entries will be pushed to the chat you have selected.
+Fill in the values collected above, enable the Telegram bot integration in Noflux, and new entries will be pushed to the chat you have selected.
 
 ![Telegram Bot Integration](/images/telegram-bot-form.png)
 

@@ -1,9 +1,9 @@
 ---
 title: Development
-description: Working with Miniflux's source code
+description: Working with Noflux's source code
 url: docs/development.html
 ---
-Working with Miniflux's code base is pretty simple:
+Working with Noflux's code base is pretty simple:
 
 - [Requirements](#requirements)
 - [Checkout the Source Code](#source-code)
@@ -28,20 +28,20 @@ Working with Miniflux's code base is pretty simple:
 
 Fork the project and clone the repository locally.
 
-Miniflux uses [Go Modules](https://github.com/golang/go/wiki/Modules) to manage dependencies.
+Noflux uses [Go Modules](https://github.com/golang/go/wiki/Modules) to manage dependencies.
 
 <h2 id="compilation">Compilation <a class="anchor" href="#compilation" title="Permalink">¶</a></h2>
 
 Build the application for the actual platform:
 
 ```bash
-make miniflux
+make noflux
 ```
 
 To define a specific version number:
 
 ```bash
-make miniflux VERSION=2.0.29
+make noflux VERSION=2.0.29
 ```
 
 Cross compilation:
@@ -120,11 +120,11 @@ To run integration tests, execute the following command:
 make integration-test ; make clean-integration-test
 ```
 
-If the test suite fail, you will see the logs of Miniflux.
+If the test suite fail, you will see the logs of Noflux.
 
 <h2 id="docker-image">Build Docker Image <a class="anchor" href="#docker-image" title="Permalink">¶</a></h2>
 
-Miniflux supports different architectures for Docker images: `amd64`, `arm32v6`, `arm32v7` and `arm64v8`.
+Noflux supports different architectures for Docker images: `amd64`, `arm32v6`, `arm32v7` and `arm64v8`.
 
 Here an example to build only the `amd64` image:
 
@@ -135,17 +135,17 @@ make docker-image
 Build all images and override the image name:
 
 ```bash
-make docker-images DOCKER_IMAGE=your-namespace/miniflux
+make docker-images DOCKER_IMAGE=your-namespace/noflux
 ```
 
 Override the build version:
 
 ```bash
-make docker-images DOCKER_IMAGE=your-namespace/miniflux VERSION=42
+make docker-images DOCKER_IMAGE=your-namespace/noflux VERSION=42
 ```
 
 Note that you need to enable Docker experimental features to build multi platform images.
-Miniflux uses [buildx](https://docs.docker.com/buildx/working-with-buildx/).
+Noflux uses [buildx](https://docs.docker.com/buildx/working-with-buildx/).
 
 <h2 id="rpm">Build RPM package <a class="anchor" href="#rpm" title="Permalink">¶</a></h2>
 
@@ -177,7 +177,7 @@ All build operations are running inside a container.
 
 <h2 id="github-codespaces">GitHub Codespaces <a class="anchor" href="#github-codespaces" title="Permalink">¶</a></h2>
 
-Miniflux development environment is preconfigured for GitHub Codespaces.
+Noflux development environment is preconfigured for GitHub Codespaces.
 It could be useful for small contributions.
 
 Just click on "Create codespace" button in GitHub web ui to create a new development environment in the cloud. Once it's ready, you can use Visual Studio Code to edit the source code.
@@ -189,16 +189,16 @@ Based on [postgres docker image](https://hub.docker.com/_/postgres/)
 You can create a local Postgresql database, for tests, easily with the following command
 
 ```bash
-docker run --rm --name local-miniflux2-db -p 5432:5432 -e POSTGRES_DB=miniflux2 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres postgres
+docker run --rm --name local-noflux-db -p 5432:5432 -e POSTGRES_DB=noflux -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres postgres
 ```
 Having persistent data
 
 ```bash
-docker volume create local-miniflux2-data
-docker run --rm --name local-miniflux2-db -p 5432:5432 -v local-miniflux2-data:/var/lib/postgresql/data -e POSTGRES_DB=miniflux2 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres postgres
+docker volume create local-noflux-data
+docker run --rm --name local-noflux-db -p 5432:5432 -v local-noflux-data:/var/lib/postgresql/data -e POSTGRES_DB=noflux -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres postgres
 ```
 
 Delete data
 ```bash
-docker volume rm local-miniflux2-data
+docker volume rm local-noflux-data
 ```

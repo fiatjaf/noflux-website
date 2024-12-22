@@ -1,10 +1,10 @@
 ---
 title: Configuration Parameters
-description: List of configuration parameters for Miniflux
+description: List of configuration parameters for Noflux
 url: /docs/configuration.html
 ---
 
-Miniflux can use a configuration file and environment variables.
+Noflux can use a configuration file and environment variables.
 
 The configuration file is loaded first if specified. Environment variables takes precedence over the options defined in the configuration file.
 
@@ -113,7 +113,7 @@ The configuration file is loaded first if specified. Environment variables takes
     <dt id="database-url"><a href="#database-url"><code>DATABASE_URL</code></a></dt>
     <dd>
         <p>Postgresql connection parameters. See <a href="https://pkg.go.dev/github.com/lib/pq#hdr-Connection_String_Parameters">lib/pq</a> for more details.</p>
-        <p><em>Default is <code>user=postgres password=postgres dbname=miniflux2 sslmode=disable</code></em></p>
+        <p><em>Default is <code>user=postgres password=postgres dbname=noflux sslmode=disable</code></em></p>
     </dd>
     <dt id="database-url-file"><a href="#database-url-file"><code>DATABASE_URL_FILE</code></a></dt>
     <dd>
@@ -192,7 +192,7 @@ The configuration file is loaded first if specified. Environment variables takes
     <dd>
         <p>
             The default User-Agent header to use for the HTTP client. Can be overridden in per-feed settings.
-            When empty, Miniflux uses a default User-Agent that includes the Miniflux version.
+            When empty, Noflux uses a default User-Agent that includes the Noflux version.
         </p>
         <p><em>Default is empty.</em></p>
     </dd>
@@ -257,7 +257,7 @@ The configuration file is loaded first if specified. Environment variables takes
     <dt id="media-proxy-custom-url"><a href="#media-proxy-custom-url"><code>MEDIA_PROXY_CUSTOM_URL</code></a></dt>
     <dd>
         <p>Sets a server to proxy media through.</p>
-        <p>Default is empty, miniflux does the proxying.</p>
+        <p>Default is empty, noflux does the proxying.</p>
     </dd>
     <dt id="media-proxy-http-client-timeout"><a href="#media-proxy-http-client-timeout"><code>MEDIA_PROXY_HTTP_CLIENT_TIMEOUT</code></a></dt>
     <dd>
@@ -352,7 +352,7 @@ The configuration file is loaded first if specified. Environment variables takes
     </dd>
     <dt id="oauth2-redirect-url"><a href="#oauth2-redirect-url"><code>OAUTH2_REDIRECT_URL</code></a></dt>
     <dd>
-        <p>OAuth2 redirect URL. This URL must be registered with the provider and is something like <code>https://miniflux.example.org/oauth2/oidc/callback</code></p>
+        <p>OAuth2 redirect URL. This URL must be registered with the provider and is something like <code>https://noflux.example.org/oauth2/oidc/callback</code></p>
         <p><em>Default is empty.</em></p>
     </dd>
     <dt id="oauth2-user-creation"><a href="#oauth2-user-creation"><code>OAUTH2_USER_CREATION</code></a></dt>
@@ -372,7 +372,7 @@ The configuration file is loaded first if specified. Environment variables takes
     </dd>
     <dt id="polling-frequency"><a href="#polling-frequency"><code>POLLING_FREQUENCY</code></a></dt>
     <dd>
-        <p>The interval in minutes that miniflux adds qualified feeds to the work queue.</p>
+        <p>The interval in minutes that noflux adds qualified feeds to the work queue.</p>
         <p><em>Default is 60 minutes.</em></p>
     </dd>
     <dt id="polling-parsing-error-limit"><a href="#polling-parsing-error-limit"><code>POLLING_PARSING_ERROR_LIMIT</code></a></dt>
@@ -473,7 +473,7 @@ The configuration file is loaded first if specified. Environment variables takes
 
 The configuration file is optional. It's a text file that follow these rules:
 
-- Miniflux expects each line to be in `KEY=VALUE` format.
+- Noflux expects each line to be in `KEY=VALUE` format.
 - Lines beginning with `#` are processed as comments and ignored.
 - Blank lines are ignored.
 - There is no variable interpolation.
@@ -494,5 +494,5 @@ To specify a configuration file, use the command line argument `-config-file` or
 You can also dump interpreted values with the flag `-config-dump` for debugging.
 
 <p class="info">
-Systemd uses the file <code>/etc/miniflux.conf</code> to populate environment variables.
+Systemd uses the file <code>/etc/noflux.conf</code> to populate environment variables.
 </p>

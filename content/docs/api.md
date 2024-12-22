@@ -8,7 +8,6 @@ Table of Contents:
 - [Authentication](#authentication)
 - [Clients](#clients)
     - [Golang Client](#go-client)
-    - [Python Client](#python-client)
 - [API Endpoints](#endpoints)
     - [Status Codes](#status-codes)
     - [Error Response](#error-response)
@@ -62,22 +61,22 @@ Table of Contents:
 The API supports two authentication mechanisms:
 
 - HTTP Basic authentication with the account username/password.
-- Per-application API keys (since version 2.0.21) -> **preferred method**.
+- Per-application API keys -> **preferred method**.
 
 To generate a new API token, got to "Settings > API Keys > Create a new API key".
 
 ### HTTP Basic Authentication Example
 
 ```bash
-curl -u your-miniflux-username https://miniflux.example.org/v1/me
+curl -u your-noflux-username https://noflux.example.org/v1/me
 ```
 
 ### API Token Authentication Example
 
-Miniflux uses the HTTP header `X-Auth-Token` for API token authentication.
+Noflux uses the HTTP header `X-Auth-Token` for API token authentication.
 
 ```bash
-curl -H "X-Auth-Token: your-token" https://miniflux.example.org/v1/me
+curl -H "X-Auth-Token: your-token" https://noflux.example.org/v1/me
 ```
 
 <h2 id="clients">Clients <a class="anchor" href="#clients" title="Permalink">¶</a></h2>
@@ -87,13 +86,13 @@ written in Python.
 
 <h3 id="go-client">Golang Client <a class="anchor" href="#go-client" title="Permalink">¶</a></h3>
 
-- Repository: <https://github.com/miniflux/v2/tree/main/client>
-- Reference: <https://pkg.go.dev/miniflux.app/v2/client>
+- Repository: <https://github.com/fiatjaf/noflux/tree/main/client>
+- Reference: <https://pkg.go.dev/noflux.app/v2/client>
 
 Installation:
 
 ```bash
-go get -u miniflux.app/client
+go get -u noflux.app/client
 ```
 
 Usage Example:
@@ -104,15 +103,15 @@ package main
 import (
     "fmt"
 
-    miniflux "miniflux.app/client"
+    noflux "noflux.app/client"
 )
 
 func main() {
     // Authentication using username/password.
-    client := miniflux.New("https://miniflux.example.org", "admin", "secret")
+    client := noflux.New("https://noflux.example.org", "admin", "secret")
 
     // Authentication using API token.
-    client := miniflux.New("https://miniflux.example.org", "My secret token")
+    client := noflux.New("https://noflux.example.org", "My secret token")
 
     // Fetch all feeds.
     feeds, err := client.Feeds()
@@ -122,50 +121,6 @@ func main() {
     }
     fmt.Println(feeds)
 }
-```
-
-<h3 id="python-client">Python Client <a class="anchor" href="#python-client" title="Permalink">¶</a></h3>
-
-- Repository: <https://github.com/miniflux/python-client>
-- PyPi: <https://pypi.org/project/miniflux/>
-
-Installation:
-
-```bash
-pip install miniflux
-```
-
-Usage example:
-
-```python
-import miniflux
-
-# Authentication using username/password
-client = miniflux.Client("https://miniflux.example.org", "my_username", "my_secret_password")
-
-# Authentication using an API token
-client = miniflux.Client("https://miniflux.example.org", api_key="My Secret Token")
-
-# Get all feeds
-feeds = client.get_feeds()
-
-# Refresh a feed
-client.refresh_feed(123)
-
-# Discover subscriptions from a website
-subscriptions = client.discover("https://example.org")
-
-# Create a new feed, with a personalized user agent and with the crawler enabled
-feed_id = client.create_feed("http://example.org/feed.xml", 42, crawler=True, user_agent="GoogleBot")
-
-# Fetch 10 starred entries
-entries = client.get_entries(starred=True, limit=10)
-
-# Fetch last 5 feed entries
-feed_entries = client.get_feed_entries(123, direction='desc', order='published_at', limit=5)
-
-# Update a feed category
-client.update_feed(123, category_id=456)
 ```
 
 <h2 id="endpoints">API Endpoints <a class="anchor" href="#endpoints" title="Permalink">¶</a></h2>
@@ -233,10 +188,6 @@ Request:
 Note that `DELETE` is also supported.
 
 Returns a `202 Accepted` status code for success.
-
-<div class="info">
-This API endpoint is available since Miniflux v2.0.49.
-</div>
 
 <h3 id="endpoint-get-feeds">Get Feeds <a class="anchor" href="#endpoint-get-feeds" title="Permalink">¶</a></h3>
 
@@ -332,10 +283,6 @@ Response:
 ]
 ```
 
-<div class="info">
-This API endpoint is available since Miniflux v2.0.29.
-</div>
-
 <h3 id="endpoint-get-feed">Get Feed <a class="anchor" href="#endpoint-get-feed" title="Permalink">¶</a></h3>
 
 Request:
@@ -417,10 +364,6 @@ Response:
 }
 ```
 
-<div class="info">
-This API endpoint is available since Miniflux v2.0.49.
-</div>
-
 <h3 id="endpoint-create-feed">Create Feed <a class="anchor" href="#endpoint-create-feed" title="Permalink">¶</a></h3>
 
 Request:
@@ -444,7 +387,7 @@ Response:
 Required fields:
 
 - `feed_url`: Feed URL (string)
-- `category_id`: Category ID (int, optional since Miniflux >= 2.0.49)
+- `category_id`: Category ID (int, optional)
 
 Optional fields:
 
@@ -452,13 +395,13 @@ Optional fields:
 - `password`: Feed password (string)
 - `crawler`: Enable/Disable scraper (boolean)
 - `user_agent`: Custom user agent for the feed (string)
-- `scraper_rules`: List of scraper rules (string) - Miniflux >= 2.0.19
-- `rewrite_rules`: List of rewrite rules (string) - Miniflux >= 2.0.19
-- `blocklist_rules` (string) - Miniflux >= 2.0.27
-- `keeplist_rules` (string) - Miniflux >= 2.0.27
-- `disabled` (boolean) - Miniflux >= 2.0.27
-- `ignore_http_cache` (boolean) - Miniflux >= 2.0.27
-- `fetch_via_proxy` (boolean) - Miniflux >= 2.0.27
+- `scraper_rules`: List of scraper rules (string) - Noflux >= 2.0.19
+- `rewrite_rules`: List of rewrite rules (string) - Noflux >= 2.0.19
+- `blocklist_rules` (string) - Noflux >= 2.0.27
+- `keeplist_rules` (string) - Noflux >= 2.0.27
+- `disabled` (boolean) - Noflux >= 2.0.27
+- `ignore_http_cache` (boolean) - Noflux >= 2.0.27
+- `fetch_via_proxy` (boolean) - Noflux >= 2.0.27
 
 <h3 id="endpoint-update-feed">Update Feed <a class="anchor" href="#endpoint-update-feed" title="Permalink">¶</a></h3>
 
@@ -547,7 +490,6 @@ Request:
 <ul>
     <li>Returns <code>204</code> status code for success.</li>
     <li>Feeds are refreshed in a background process.</li>
-    <li>Available since Miniflux 2.0.21</li>
 </ul>
 
 <h3 id="endpoint-remove-feed">Remove Feed <a class="anchor" href="#endpoint-remove-feed" title="Permalink">¶</a></h3>
@@ -701,13 +643,13 @@ Response:
   "status": "unread",
   "hash": "22a6795131770d9577c91c7816e7c05f78586fc82e8ad0881bce69155f63edb6",
   "title": "New title",
-  "url": "https://miniflux.app/releases/1.0.1.html",
+  "url": "https://noflux.nostr.technology/releases/1.0.1.html",
   "comments_url": "",
   "published_at": "2013-03-20T00:00:00Z",
   "created_at": "2023-10-07T03:52:50.013556Z",
   "changed_at": "2023-10-07T03:52:50.013556Z",
   "content": "Some text",
-  "author": "Frédéric Guillot",
+  "author": "fiatjaf",
   "share_code": "",
   "starred": false,
   "reading_time": 1,
@@ -715,9 +657,9 @@ Response:
   "feed": {
     "id": 21,
     "user_id": 1,
-    "feed_url": "https://miniflux.app/feed.xml",
-    "site_url": "https://miniflux.app",
-    "title": "Miniflux",
+    "feed_url": "https://noflux.nostr.technology/feed.xml",
+    "site_url": "https://noflux.nostr.technology",
+    "title": "Noflux",
     "checked_at": "2023-10-08T23:56:44.853427Z",
     "next_check_at": "0001-01-01T00:00:00Z",
     "etag_header": "",
@@ -758,10 +700,6 @@ Response:
 
 Returns a `201 Created` status code for success.
 
-<div class="info">
-This API endpoint is available since Miniflux v2.0.49.
-</div>
-
 <h3 id="endpoint-save-entry">Save entry to third-party services <a class="anchor" href="#endpoint-save-entry" title="Permalink">¶</a></h3>
 
 Request:
@@ -784,10 +722,6 @@ Response:
 {"content": "html content"}
 ```
 
-<div class="info">
-This API endpoint is available since Miniflux v2.0.36.
-</div>
-
 <h3 id="endpoint-get-category-entries">Get Category Entries <a class="anchor" href="#endpoint-get-category-entries" title="Permalink">¶</a></h3>
 
 Request:
@@ -802,17 +736,17 @@ Available filters:
 - `order`: "id", "status", "published\_at", "category\_title",
 "category\_id"
 - `direction`: "asc" or "desc"
-- `before` (unix timestamp, available since Miniflux 2.0.9)
-- `after` (unix timestamp, available since Miniflux 2.0.9)
-- `published_before` (unix timestamp, available since Miniflux 2.0.49)
-- `published_after` (unix timestamp, available since Miniflux 2.0.49)
-- `changed_before` (unix timestamp, available since Miniflux 2.0.49)
-- `changed_after` (unix timestamp, available since Miniflux 2.0.49)
-- `before_entry_id` (int64, available since Miniflux 2.0.9)
-- `after_entry_id` (int64, available since Miniflux 2.0.9)
-- `starred` (boolean, available since Miniflux 2.0.9)
-- `search`: search query (text, available since Miniflux 2.0.10)
-- `category_id`: filter by category (int, available since Miniflux 2.0.19)
+- `before` (unix timestamp)
+- `after` (unix timestamp)
+- `published_before` (unix timestamp)
+- `published_after` (unix timestamp)
+- `changed_before` (unix timestamp)
+- `changed_after` (unix timestamp)
+- `before_entry_id` (int64)
+- `after_entry_id` (int64)
+- `starred` (boolean)
+- `search`: search query (text)
+- `category_id`: filter by category (int)
 
 Response:
 
@@ -887,17 +821,17 @@ Available filters:
 - `order`: "id", "status", "published\_at", "category\_title",
 "category\_id"
 - `direction`: "asc" or "desc"
-- `before` (unix timestamp, available since Miniflux 2.0.9)
-- `after` (unix timestamp, available since Miniflux 2.0.9)
-- `published_before` (unix timestamp, available since Miniflux 2.0.49)
-- `published_after` (unix timestamp, available since Miniflux 2.0.49)
-- `changed_before` (unix timestamp, available since Miniflux 2.0.49)
-- `changed_after` (unix timestamp, available since Miniflux 2.0.49)
-- `before_entry_id` (int64, available since Miniflux 2.0.9)
-- `after_entry_id` (int64, available since Miniflux 2.0.9)
-- `starred` (boolean, available since Miniflux 2.0.9)
-- `search`: search query (text, available since Miniflux 2.0.10)
-- `category_id`: filter by category (int, available since Miniflux 2.0.19)
+- `before` (unix timestamp)
+- `after` (unix timestamp)
+- `published_before` (unix timestamp)
+- `published_after` (unix timestamp)
+- `changed_before` (unix timestamp)
+- `changed_after` (unix timestamp)
+- `before_entry_id` (int64)
+- `after_entry_id` (int64)
+- `starred` (boolean)
+- `search`: search query (text)
+- `category_id`: filter by category (int)
 
 Response:
 
@@ -966,10 +900,6 @@ Request:
 
 Returns `204 Not Content` status code for success.
 
-<div class="info">
-This API endpoint is available since Miniflux v2.0.26.
-</div>
-
 <h3 id="endpoint-get-entries">Get Entries <a class="anchor" href="#endpoint-get-entries" title="Permalink">¶</a></h3>
 
 Request:
@@ -984,17 +914,17 @@ Available filters:
 - `order`: "id", "status", "published\_at", "category\_title",
 "category\_id"
 - `direction`: "asc" or "desc"
-- `before` (unix timestamp, available since Miniflux 2.0.9)
-- `after` (unix timestamp, available since Miniflux 2.0.9)
-- `published_before` (unix timestamp, available since Miniflux 2.0.49)
-- `published_after` (unix timestamp, available since Miniflux 2.0.49)
-- `changed_before` (unix timestamp, available since Miniflux 2.0.49)
-- `changed_after` (unix timestamp, available since Miniflux 2.0.49)
-- `before_entry_id` (int64, available since Miniflux 2.0.9)
-- `after_entry_id` (int64, available since Miniflux 2.0.9)
-- `starred` (boolean, available since Miniflux 2.0.9)
-- `search`: search query (text, available since Miniflux 2.0.10)
-- `category_id`: filter by category (int, available since Miniflux 2.0.24)
+- `before` (unix timestamp)
+- `after` (unix timestamp)
+- `published_before` (unix timestamp)
+- `published_after` (unix timestamp)
+- `changed_before` (unix timestamp)
+- `changed_after` (unix timestamp)
+- `before_entry_id` (int64)
+- `after_entry_id` (int64)
+- `starred` (boolean)
+- `search`: search query (text)
+- `category_id`: filter by category (int)
 
 Response:
 
@@ -1097,10 +1027,6 @@ Response:
 }
 ```
 
-<div class="info">
-This API endpoint is available since Miniflux v2.2.0.
-</div>
-
 <h3 id="endpoint-update-enclosure">Update Enclosure <a class="anchor" href="#endpoint-update-enclosure" title="Permalink">¶</a></h3>
 
 Request:
@@ -1112,10 +1038,6 @@ Request:
     }
 
 Returns `204` status code for success.
-
-<div class="info">
-This API endpoint is available since Miniflux v2.2.0.
-</div>
 
 <h3 id="endpoint-get-categories">Get Categories <a class="anchor" href="#endpoint-get-categories" title="Permalink">¶</a></h3>
 
@@ -1185,10 +1107,6 @@ Request:
     <li>Category feeds are refreshed in a background process.</li>
 </ul>
 
-<div class="info">
-This API endpoint is available since Miniflux v2.0.42.
-</div>
-
 <h3 id="endpoint-delete-category">Delete Category <a class="anchor" href="#endpoint-delete-category" title="Permalink">¶</a></h3>
 
 Request:
@@ -1205,10 +1123,6 @@ Request:
 
 Returns `204 Not Content` status code for success.
 
-<div class="info">
-This API endpoint is available since Miniflux v2.0.26.
-</div>
-
 <h3 id="endpoint-export">OPML Export <a class="anchor" href="#endpoint-export" title="Permalink">¶</a></h3>
 
 Request:
@@ -1216,10 +1130,6 @@ Request:
     GET /v1/export
 
 The response is a XML document (OPML file).
-
-<div class="info">
-This API call is available since Miniflux v2.0.1.
-</div>
 
 <h3 id="endpoint-import">OPML Import <a class="anchor" href="#endpoint-import" title="Permalink">¶</a></h3>
 
@@ -1239,10 +1149,6 @@ Response:
   "message": "Feeds imported successfully"
 }
 ```
-
-<div class="info">
-This API call is available since Miniflux v2.0.7.
-</div>
 
 <h3 id="endpoint-create-user">Create User <a class="anchor" href="#endpoint-create-user" title="Permalink">¶</a></h3>
 
@@ -1375,10 +1281,6 @@ Response:
 }
 ```
 
-<div class="info">
-This API endpoint is available since Miniflux v2.0.8.
-</div>
-
 <h3 id="endpoint-get-user">Get User <a class="anchor" href="#endpoint-get-user" title="Permalink">¶</a></h3>
 
 Request:
@@ -1467,10 +1369,6 @@ Request:
 
 Returns `204 Not Content` status code for success.
 
-<div class="info">
-This API endpoint is available since Miniflux v2.0.26.
-</div>
-
 <h3 id="endpoint-counters">Fetch Read/Unread Counters <a class="anchor" href="#endpoint-counters" title="Permalink">¶</a></h3>
 
 Request:
@@ -1494,10 +1392,6 @@ Response Example:
 }
 ```
 
-<div class="info">
-This endpoint is available since Miniflux 2.0.37.
-</div>
-
 <h3 id="endpoint-healthcheck">Healthcheck <a class="anchor" href="#endpoint-healthcheck" title="Permalink">¶</a></h3>
 
 The healthcheck endpoint is useful for monitoring and load-balancer
@@ -1517,7 +1411,7 @@ Returns a status code 200 when the service is up.
 
 <h3 id="deprecated-endpoint-version">Application version <a class="anchor" href="#deprecated-endpoint-version" title="Permalink">¶</a></h3>
 
-The version endpoint returns Miniflux build version.
+The version endpoint returns Noflux build version.
 
 Request:
 
@@ -1529,13 +1423,9 @@ Response:
 2.0.22
 ```
 
-<div class="info">
-This API endpoint is available since Miniflux v2.0.22 and it's deprecated since version 2.0.49.
-</div>
-
 <h3 id="endpoint-version">Application version and build information <a class="anchor" href="#endpoint-version" title="Permalink">¶</a></h3>
 
-The version endpoint returns Miniflux version and build information.
+The version endpoint returns Noflux version and build information.
 
 Request:
 
@@ -1554,7 +1444,3 @@ Response:
     "os":"linux"
 }
 ```
-
-<div class="info">
-This API endpoint is available since Miniflux v2.0.49.
-</div>

@@ -13,14 +13,14 @@ Table of Contents
 - [Lire](#lire) (iOS/macOS / Paid / Proprietary)
 - [Microflux](#microflux) (Android)
 - [Miniflutt](#miniflutt) (Android)
-- [Miniflux-ai](#miniflux-ai) (Add AI summaries, translations, and AI news based on RSS content)
+- [Noflux-ai](#noflux-ai) (Add AI summaries, translations, and AI news based on RSS content)
 - [NetNewsWire](https://netnewswire.com/) (iOS/macOS / FOSS)
 - [Newsboat](https://github.com/newsboat/newsboat) (text console / FOSS)
 - [NewsFlash](https://gitlab.com/news-flash/news_flash_gtk) (Linux / FOSS)
 - [ReactFlux](#ReactFlux) (Web frontend)
 - [Read You](https://github.com/Ashinch/ReadYou) (Android / FOSS)
 - [Reeder Classic](http://reederapp.com/classic) (iOS/macOS / Paid / Proprietary)
-- [Reminiflux](#reminiflux) (Web frontend)
+- [Renoflux](#renoflux) (Web frontend)
 - [RSS Guard](https://github.com/martinrotter/rssguard) (Windows, Linux, BSD, OS/2 or macOS / FOSS)
 - [Telegram](https://telegram.org/)
 - [Unread](https://www.goldenhillsoftware.com/unread/) (iOS/macOS / Freemium / Proprietary)
@@ -33,7 +33,7 @@ Links: [GitHub](https://github.com/PascalNoisette/fluxjs)
 
 <h2 id="fluxnews">FluxNews <a class="anchor" href="#fluxnews" title="Permalink">¶</a></h2>
 
-A simple Newsreader for the miniflux backend. This newsreader sync with the Miniflux server API.
+A simple Newsreader for the noflux backend. This newsreader sync with the Noflux server API.
 
 It supports light and dark mode, mark articles as read on scrollover and open articles preferred in an already installed app.
 
@@ -41,26 +41,26 @@ Links: [GitHub](https://github.com/KevinCFechtel/FluxNews)
 
 <h2 id="lire">Lire <a class="anchor" href="#lire" title="Permalink">¶</a></h2>
 
-Lire can sync with Miniflux. It uses both the Fever API and the Miniflux API.
+Lire can sync with Noflux. It uses both the Fever API and the Noflux API.
 
 ![Screenshot](https://lireapp.com/iOS.png)
 
 ### Configuration
 
-1. Enable the Fever integration in Miniflux and define a Fever username and password (Go to **Settings > Integrations**)
+1. Enable the Fever integration in Noflux and define a Fever username and password (Go to **Settings > Integrations**)
 
 ![Fever API](/images/lire_fever_settings.png)
 
-2. Create a new Miniflux API Key in **Settings > API Keys**
+2. Create a new Noflux API Key in **Settings > API Keys**
 
-![Miniflux API Key](/images/lire_miniflux_api_key.png)
+![Noflux API Key](/images/lire_noflux_api_key.png)
 
-3. Enter the connection information created above in Lire settings (select Miniflux in the list of self-hosted sync services)
+3. Enter the connection information created above in Lire settings (select Noflux in the list of self-hosted sync services)
 
 ![Lire Settings](/images/lire_settings.png)
 
 - Make sure to copy and paste the entire API Key (double check for typos)
-- Do not use `/v1/` or `/fever/` in the Miniflux URL, for example, the URL is `https://reader.miniflux.app` for the hosted version of Miniflux
+- Do not use `/v1/` or `/fever/` in the Noflux URL, for example, the URL is `https://reader.noflux.app` for the hosted version of Noflux
 
 Links: [Official website](https://lireapp.com/), [iOS App Store](http://itunes.apple.com/app/lire/id1531976425?ls=1&mt=8), [Mac App Store](https://apps.apple.com/us/app/lire/id1482527526?ls=1&mt=12)
 
@@ -99,16 +99,16 @@ Features:
 Links: [Google Play](https://play.google.com/store/apps/details?id=be.martinelli.miniflutt),
 [GitHub](https://github.com/DocMarty84/miniflutt)
 
-<h2 id="miniflux-ai">Miniflux-ai <a class="anchor" href="#miniflux-ai" title="Permalink">¶</a></h2>
+<h2 id="noflux-ai">Noflux-ai <a class="anchor" href="#noflux-ai" title="Permalink">¶</a></h2>
 
-This project integrates with Miniflux to fetch RSS feed content via API or webhook. 
+This project integrates with Noflux to fetch RSS feed content via API or webhook. 
 It then utilizes large language models (e.g., Ollama, ChatGPT, LLaMA, Gemini) to generate summaries, translations, and AI-driven news insights.
 
-Links: [GitHub](https://github.com/Qetesh/miniflux-ai)
+Links: [GitHub](https://github.com/Qetesh/noflux-ai)
 
 <h2 id="ReactFlux">ReactFlux <a class="anchor" href="#ReactFlux" title="Permalink">¶</a></h2>
 
-ReactFlux is a third-party web frontend for Miniflux, aimed at providing a more user-friendly reading experience.
+ReactFlux is a third-party web frontend for Noflux, aimed at providing a more user-friendly reading experience.
 
 Key features include:
 
@@ -127,9 +127,9 @@ Key features include:
 
 Links: [GitHub](https://github.com/electh/ReactFlux)
 
-<h2 id="reminiflux">Reminiflux <a class="anchor" href="#reminiflux" title="Permalink">¶</a></h2>
+<h2 id="renoflux">Renoflux <a class="anchor" href="#renoflux" title="Permalink">¶</a></h2>
 
-Reminiflux is an alternative web frontend. It offers a look and feel which is more similar to
+Renoflux is an alternative web frontend. It offers a look and feel which is more similar to
 Google Reader and TT-RSS with a 3-paned display showing the list of feeds, items and an article.
 
-Links: [GitHub](https://github.com/reminiflux/reminiflux)
+Links: [GitHub](https://github.com/renoflux/renoflux)

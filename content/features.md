@@ -9,7 +9,7 @@ url: features.html
 - Supported feed formats: Atom 0.3/1.0, RSS 1.0/2.0, RDF, and JSON.
 - [OPML](https://en.wikipedia.org/wiki/OPML) file import/export and URL import.
 - Supports multiple enclosures/attachments (Podcasts, videos, music, and images).
-- Plays videos from YouTube channels directly inside Miniflux.
+- Plays videos from YouTube channels directly inside Noflux.
 - Categories and bookmarks.
 - Fetches website icons (favicons).
 - Saves articles to third-party services.
@@ -43,7 +43,7 @@ url: features.html
 - Responsive design (works on desktop, tablet, and mobile devices)
 - No fancy user interface
 - Doesn't require to download an application from Apple/Google Store
-- You could add Miniflux to the home screen
+- You could add Noflux to the home screen
 - Keyboard shortcuts
 - Touch events on mobile devices
 - Themes:
@@ -60,7 +60,7 @@ url: features.html
 - Bookmarklet to subscribe to a website directly from any web browser
 - Webhooks
 - Use existing mobile applications to read your feeds by using the Fever or Google Reader API
-- REST API with clients written in [Go](https://github.com/miniflux/v2/tree/main/client) and [Python](https://github.com/miniflux/python-client)
+- REST API
 
 <h2 id="auth">Authentication <a class="anchor" href="#auth" title="Permalink">¶</a></h2>
 

@@ -3,7 +3,7 @@ title: Fever API
 url: /docs/fever.html
 ---
 
-Miniflux implements the [Fever API](https://feedafever.com/api) in addition to its own [REST API](api.html). The
+Noflux implements the [Fever API](https://feedafever.com/api) in addition to its own [REST API](api.html). The
 Fever API allows you to use existing mobile applications to read your
 feeds instead of the web user interface.
 
@@ -19,7 +19,7 @@ To activate the Fever API, go to the integration section and choose a username/p
 - [FocusReader](https://play.google.com/store/apps/details?id=allen.town.focus.reader) (Android)
 - [NewsFlash](https://gitlab.com/news-flash/news_flash_gtk) (Linux)
 - [Fluent Reader](https://hyliu.me/fluent-reader/) (Windows and Mac)
-- [Lire](https://lireapp.com/) (iOS/macOS) - Also requires a Miniflux API Key
+- [Lire](https://lireapp.com/) (iOS/macOS) - Also requires a Noflux API Key
 
 ## Notes
 

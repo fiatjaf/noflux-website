@@ -8,9 +8,7 @@ url: /docs/ntfy.html
 - [Official website](https://ntfy.sh/)
 - [Git repository](https://github.com/binwiederhier/ntfy)
 
-Miniflux can send new entries to any **ntfy** server. By doing so, you can receive push notifications whenever a new article is published.
-
-This feature is available since Miniflux v2.2.0.
+Noflux can send new entries to any **ntfy** server. By doing so, you can receive push notifications whenever a new article is published.
 
 To receive notifications on your phone, install the app. Once installed, open it and subscribe to a topic of your choosing.
 
@@ -19,7 +17,7 @@ You can also protect your topic with a username/password or an API token (see [n
 
 ![Integration Settings](/images/ntfy_integration_settings.png)
 
-Optionally, you can add an icon (compatible with Android only). Feel free to use a Miniflux icon served by GitHub Pages, for example: `https://miniflux.app/logo/original/favicon-32-bg-white.png`.
+Optionally, you can add an icon (compatible with Android only). Feel free to use a Noflux icon served by GitHub Pages, for example: `https://noflux.nostr.technology/logo/original/favicon-32-bg-white.png`.
 
 To avoid unnecessary requests, make sure to enable push notifications explicitly for each feed.
 

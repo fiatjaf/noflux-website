@@ -1,31 +1,31 @@
 ---
 title: Command Line Usage
-description: List of available command line arguments for Miniflux
+description: List of available command line arguments for Noflux
 url: docs/cli.html
 ---
 
 <h2 id="config-dump">Show Interpreted Configuration Values <a class="anchor" href="#config-dump" title="Permalink">¶</a></h2>
 
 ```bash
-miniflux -config-dump
+noflux -config-dump
 ```
 
 <h2 id="config-file">Use a Configuration File <a class="anchor" href="#config-file" title="Permalink">¶</a></h2>
 
 ```bash
-miniflux -config-file /etc/miniflux.conf
+noflux -config-file /etc/noflux.conf
 ```
 
-or 
+or
 
 ```bash
-miniflux -c /etc/miniflux.conf
+noflux -c /etc/noflux.conf
 ```
 
 <h2 id="create-admin">Create Admin User <a class="anchor" href="#create-admin" title="Permalink">¶</a></h2>
 
 ```bash
-miniflux -create-admin
+noflux -create-admin
 Enter Username: root
 Enter Password: ****
 ```
@@ -33,21 +33,21 @@ Enter Password: ****
 <h2 id="debug">Enable Debug Mode <a class="anchor" href="#debug" title="Permalink">¶</a></h2>
 
 ```bash
-miniflux -debug
+noflux -debug
 [INFO] Debug mode enabled
-[INFO] Starting Miniflux...
+[INFO] Starting Noflux...
 ```
 
 <h2 id="export-feeds">Export feeds <a class="anchor" href="#export-feeds" title="Permalink">¶</a></h2>
 
 ```bash
-miniflux -export-user-feeds username > feeds.opml
+noflux -export-user-feeds username > feeds.opml
 ```
 
 <h2 id="flush-sessions">Flush All Sessions <a class="anchor" href="#flush-sessions" title="Permalink">¶</a></h2>
 
 ```bash
-miniflux -flush-sessions
+noflux -flush-sessions
 Flushing all sessions (disconnect users)
 ```
 
@@ -56,7 +56,7 @@ Flushing all sessions (disconnect users)
 Perform a health check on the given endpoint. The value "auto" try to guess the health check endpoint.
 
 ```bash
-miniflux -healthcheck https://miniflux.domain.tld/healthcheck
+noflux -healthcheck https://noflux.domain.tld/healthcheck
 ```
 
 Return 0 as exit code if successful otherwise returns 1.
@@ -64,7 +64,7 @@ Return 0 as exit code if successful otherwise returns 1.
 <h2 id="info">Show Build Information <a class="anchor" href="#info" title="Permalink">¶</a></h2>
 
 ```bash
-miniflux -info # or -i
+noflux -info # or -i
 Version: 2.0.15
 Build Date: 2019-03-16T18:26:30-0700
 Go Version: go1.12
@@ -78,7 +78,7 @@ OS: darwin
 ```bash
 export DATABASE_URL=replace_me
 
-miniflux -migrate
+noflux -migrate
 Current schema version: 0
 Latest schema version: 12
 Migrating to version: 1
@@ -98,19 +98,19 @@ Migrating to version: 12
 <h2 id="refresh-feeds">Refresh feeds <a class="anchor" href="#refresh-feeds" title="Permalink">¶</a></h2>
 
 ```bash
-miniflux -refresh-feeds
+noflux -refresh-feeds
 ```
 
 <h2 id="reset-feed-errors">Reset All Feed Errors <a class="anchor" href="#reset-feed-errors" title="Permalink">¶</a></h2>
 
 ```bash
-miniflux -reset-feed-errors
+noflux -reset-feed-errors
 ```
 
 <h2 id="reset-password">Reset User Password <a class="anchor" href="#reset-password" title="Permalink">¶</a></h2>
 
 ```bash
-miniflux -reset-password
+noflux -reset-password
 Enter Username: myusername
 Enter Password: ****
 ```
@@ -120,12 +120,12 @@ Enter Password: ****
 Delete old sessions and archives old entries.
 
 ```bash
-miniflux -run-cleanup-tasks
+noflux -run-cleanup-tasks
 ```
 
 <h2 id="version">Show Application Version <a class="anchor" href="#version" title="Permalink">¶</a></h2>
 
 ```bash
-miniflux -version # or -v
+noflux -version # or -v
 2.0.15
 ```

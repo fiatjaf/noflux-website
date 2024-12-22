@@ -1,10 +1,10 @@
 ---
-title: Miniflux Installation with Docker
-description: Instructions to install Miniflux with Docker
+title: Noflux Installation with Docker
+description: Instructions to install Noflux with Docker
 url: docs/docker.html
 ---
 
-This document describes how to use the Docker images of Miniflux.
+This document describes how to use the Docker images of Noflux.
 
 - [Container Registries](#registries)
 - [How to Run the Container Manually](#docker)
@@ -16,9 +16,9 @@ This document describes how to use the Docker images of Miniflux.
 
 Docker images are published to three different container registries:
 
-- [Docker Hub Registry](https://hub.docker.com/r/miniflux/miniflux): `docker.io/miniflux/miniflux`
-- [GitHub Container Registry](https://github.com/miniflux/v2/pkgs/container/miniflux): `ghcr.io/miniflux/miniflux`
-- [Quay.io RedHat Container Registry](https://quay.io/repository/miniflux/miniflux): `quay.io/miniflux/miniflux`
+- [Docker Hub Registry](https://hub.docker.com/r/noflux/noflux): `docker.io/noflux/noflux`
+- [GitHub Container Registry](https://github.com/fiatjaf/noflux/pkgs/container/noflux): `ghcr.io/noflux/noflux`
+- [Quay.io RedHat Container Registry](https://quay.io/repository/noflux/noflux): `quay.io/noflux/noflux`
 
 **Docker Architectures:**
 
@@ -42,13 +42,13 @@ Pull the image and run the container:
 ```bash
 docker run -d \
   -p 80:8080 \
-  --name miniflux \
-  -e "DATABASE_URL=postgres://miniflux:*password*@*dbhost*/miniflux?sslmode=disable" \
+  --name noflux \
+  -e "DATABASE_URL=postgres://noflux:*password*@*dbhost*/noflux?sslmode=disable" \
   -e "RUN_MIGRATIONS=1" \
   -e "CREATE_ADMIN=1" \
   -e "ADMIN_USERNAME=*username*" \
   -e "ADMIN_PASSWORD=*password*" \
-  docker.io/miniflux/miniflux:latest
+  docker.io/noflux/noflux:latest
 ```
 
 Running the command above will run the migrations and sets up a new admin account with the chosen username and password.
@@ -61,15 +61,15 @@ Here is an example of a Docker Compose file:
 
 ```yaml
 services:
-  miniflux:
-    image: miniflux/miniflux:latest
+  noflux:
+    image: noflux/noflux:latest
     ports:
       - "80:8080"
     depends_on:
       db:
         condition: service_healthy
     environment:
-      - DATABASE_URL=postgres://miniflux:secret@db/miniflux?sslmode=disable
+      - DATABASE_URL=postgres://noflux:secret@db/noflux?sslmode=disable
       - RUN_MIGRATIONS=1
       - CREATE_ADMIN=1
       - ADMIN_USERNAME=admin
@@ -77,32 +77,32 @@ services:
   db:
     image: postgres:17-alpine
     environment:
-      - POSTGRES_USER=miniflux
+      - POSTGRES_USER=noflux
       - POSTGRES_PASSWORD=secret
-      - POSTGRES_DB=miniflux
+      - POSTGRES_DB=noflux
     volumes:
-      - miniflux-db:/var/lib/postgresql/data
+      - noflux-db:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD", "pg_isready", "-U", "miniflux"]
+      test: ["CMD", "pg_isready", "-U", "noflux"]
       interval: 10s
       start_period: 30s
 volumes:
-  miniflux-db:
+  noflux-db:
 ```
 
 - `DATABASE_URL` is used to define the database connection parameters
 - `RUN_MIGRATIONS=1` runs the SQL migrations automatically
 - `CREATE_ADMIN`, `ADMIN_USERNAME`, `ADMIN_PASSWORD` allows us to create the first admin user, and it can be removed after the first initialization.
 
-There are more examples in the Git repository with Traefik and Caddy: https://github.com/miniflux/v2/tree/master/contrib/docker-compose
+There are more examples in the Git repository with Traefik and Caddy: https://github.com/fiatjaf/noflux/tree/master/contrib/docker-compose
 
 You could also configure an optional health check in your Docker Compose file:
 
 ```yaml
-miniflux:
-  image: miniflux/miniflux:latest
+noflux:
+  image: noflux/noflux:latest
   healthcheck:
-    test: ["CMD", "/usr/bin/miniflux", "-healthcheck", "auto"]
+    test: ["CMD", "/usr/bin/noflux", "-healthcheck", "auto"]
 ```
 
 Make sure to take a look a the list of [configuration parameters]({{< relref configuration >}}) to customize your installation.

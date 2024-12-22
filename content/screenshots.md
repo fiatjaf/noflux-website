@@ -1,5 +1,5 @@
 ---
-title: Screenshots of Miniflux
+title: Screenshots of Noflux
 url: screenshots.html
 ---
 <h2 id="keyboard-navigation">Keyboard Navigation <a class="anchor" href="#keyboard-navigation" title="Permalink">¶</a></h2>

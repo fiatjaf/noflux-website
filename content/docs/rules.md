@@ -12,13 +12,13 @@ url: /docs/rules.html
 
 <h2 id="feed-filtering-rules">Feed Filtering Rules <a class="anchor" href="#feed-filtering-rules" title="Permalink">¶</a></h2>
 
-Miniflux has a basic filtering system that allows you to ignore or keep articles.
+Noflux has a basic filtering system that allows you to ignore or keep articles.
 
 ### Block Rules
 
 Block rules ignore articles with a title, an entry URL, a tag or an author that match the regex ([RE2 syntax](https://golang.org/s/re2syntax)).
 
-For example, the regex `(?i)miniflux` will ignore all articles with a title that contains the word Miniflux (case insensitive).
+For example, the regex `(?i)noflux` will ignore all articles with a title that contains the word Noflux (case insensitive).
 
 Ignored articles won't be saved into the database.
 
@@ -26,7 +26,7 @@ Ignored articles won't be saved into the database.
 
 Keep rules keep only articles that match the regex ([RE2 syntax](https://golang.org/s/re2syntax)).
 
-For example, the regex `(?i)miniflux` will keep only the articles with a title that contains the word Miniflux (case insensitive).
+For example, the regex `(?i)noflux` will keep only the articles with a title that contains the word Noflux (case insensitive).
 
 <h2 id="global-filtering-rules">Global Filtering Rules <a class="anchor" href="#global-filtering-rules" title="Permalink">¶</a></h2>
 
@@ -70,7 +70,7 @@ Date format must be YYYY-MM-DD, for example: 2024-01-01
 
 Block rules ignores articles that match a single rule.
 
-For example, the rule `EntryTitle=(?i)miniflux` will ignore all articles with a title that contains the word Miniflux (case insensitive).
+For example, the rule `EntryTitle=(?i)noflux` will ignore all articles with a title that contains the word Noflux (case insensitive).
 
 For example:
 
@@ -81,7 +81,7 @@ For example:
 
 Keep rules will keep articles that match a single rule.
 
-For example, the rule `EntryTitle=(?i)miniflux` will keep only the articles with a title that contains the word Miniflux (case insensitive).
+For example, the rule `EntryTitle=(?i)noflux` will keep only the articles with a title that contains the word Noflux (case insensitive).
 
 For example:
 
@@ -197,7 +197,7 @@ Especially on mobile devices where there is no `hover` event.
     <dd>
 </dl>
 
-Miniflux includes a set of [predefined rules](https://github.com/miniflux/v2/blob/main/internal/reader/rewrite/rules.go) for some websites, but you could define your own rules.
+Noflux includes a set of [predefined rules](https://github.com/fiatjaf/noflux/blob/main/internal/reader/rewrite/rules.go) for some websites, but you could define your own rules.
 
 On the feed edit page, enter your custom rules in the field "Rewrite Rules" like this:
 
@@ -212,7 +212,7 @@ Separate each rule by a comma.
 When an article contains only an extract of the content, you could fetch
 the original web page and apply a set of rules to get relevant contents.
 
-Miniflux uses CSS selectors for custom rules. These custom rules can be
+Noflux uses CSS selectors for custom rules. These custom rules can be
 saved in the feed properties (Select a feed and click on edit).
 
 | CSS Selector  | Description  |
@@ -221,10 +221,10 @@ saved in the feed properties (Select a feed and click on edit).
 | `div.content` | Fetch all `div` elements with the class `content` |
 | `article, div.article` | Use a comma to define multiple rules |
 
-Miniflux includes a list of [predefined rules](https://github.com/miniflux/v2/blob/main/internal/reader/scraper/rules.go) for popular websites.
+Noflux includes a list of [predefined rules](https://github.com/fiatjaf/noflux/blob/main/internal/reader/scraper/rules.go) for popular websites.
 You could contribute to the project to keep them up to date.
 
-Under the hood, Miniflux uses the library [Goquery](https://github.com/PuerkitoBio/goquery).
+Under the hood, Noflux uses the library [Goquery](https://github.com/PuerkitoBio/goquery).
 
 <h2 id="rewriteurl-rules">URL Rewrite Rules <a class="anchor" href="#rewriteurl-rules" title="Permalink">¶</a></h2>
 

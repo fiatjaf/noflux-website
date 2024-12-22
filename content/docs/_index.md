@@ -1,6 +1,6 @@
 ---
 title: Documentation
-description: Miniflux's Documentation
+description: Noflux's Documentation
 slug: index.html
 aliases:
 - /docs/services.html
@@ -20,7 +20,6 @@ aliases:
     - [Docker Installation]({{< ref "docker.md" >}})
 - [Upgrading the Application]({{< relref upgrade >}})
 - [How-To's]({{< relref howto >}})
-- [Migration from Older Versions]({{< relref migration >}})
 
 ## User Guide
 

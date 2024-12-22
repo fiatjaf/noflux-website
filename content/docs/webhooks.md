@@ -5,11 +5,9 @@ url: /docs/webhooks.html
 
 [Webhooks](https://en.wikipedia.org/wiki/Webhook) are user-defined HTTP callbacks.
 
-Miniflux can publish new feed entries to a custom API endpoint. You can easily set up your own personal webhook receiver and extend Miniflux by writing your own scripts.
+Noflux can publish new feed entries to a custom API endpoint. You can easily set up your own personal webhook receiver and extend Noflux by writing your own scripts.
 
-This feature has been available since Miniflux 2.0.48.
-
-Configuring a Webhook in Miniflux
+Configuring a Webhook in Noflux
 -------------------------------
 
 1. Go to **Settings > Integrations > Webhook**
@@ -20,7 +18,7 @@ The auto-generated secret is used to validate the payload.
 Webhook Event Types
 -------------------
 
-Miniflux supports different types of event:
+Noflux supports different types of event:
 
 - `new_entries`: Event sent during a feed refresh when new entries are discovered
 - `save_entry`: Event sent when the end-user save an entry
@@ -30,14 +28,14 @@ Webhook HTTP Request
 
 - HTTP Method: `POST`
 - Content Type: `application/json`
-- The HMAC signature is stored in the HTTP header: `X-Miniflux-Signature`
-- The event type in stored in HTTP header `X-Miniflux-Event-Type` in addition to the request body
+- The HMAC signature is stored in the HTTP header: `X-Noflux-Signature`
+- The event type in stored in HTTP header `X-Noflux-Event-Type` in addition to the request body
 - The body contains a JSON payload
 
-Validating Signatures from Miniflux
+Validating Signatures from Noflux
 -----------------------------------
 
-Miniflux will sign all inbound requests to your application with an `X-Miniflux-Signature` HTTP header.
+Noflux will sign all inbound requests to your application with an `X-Noflux-Signature` HTTP header.
 The signature uses the HMAC-SHA256 hashing algorithm with the request body and the auto-generated secret key that is visible in **Settings > Integrations > Webhook**.
 
 Example in PHP:
@@ -51,7 +49,7 @@ $payload = file_get_contents('php://input');
 
 $hmac = hash_hmac('sha256', $payload, $secret);
 
-if (! hash_equals($hmac, $_SERVER['HTTP_X_MINIFLUX_SIGNATURE'])) {
+if (! hash_equals($hmac, $_SERVER['HTTP_X_NOFLUX_SIGNATURE'])) {
     die('Incorrect signature!');
 }
 ```
@@ -59,8 +57,8 @@ if (! hash_equals($hmac, $_SERVER['HTTP_X_MINIFLUX_SIGNATURE'])) {
 HTTP Authentication
 -------------------
 
-Miniflux supports HTTP Basic Authentication. 
-This allows you to password protect the webhook URLs on your web server so that only you and Miniflux can access them.
+Noflux supports HTTP Basic Authentication.
+This allows you to password protect the webhook URLs on your web server so that only you and Noflux can access them.
 
 You may provide a username and password via the following URL format: `https://username:password@webhook.example.org/`
 
@@ -71,9 +69,9 @@ New Entries Event Request
 POST /your-webhook-endpoint HTTP/1.1
 
 Content-Type: application/json
-User-Agent: Miniflux/2.0.48
-X-Miniflux-Signature: 7ff170cfd8c173fd5084e0f51ee6ac3eae8acff443f11f9168961cebf836e38f
-X-Miniflux-Event-Type: new_entries
+User-Agent: Noflux/2.0.48
+X-Noflux-Signature: 7ff170cfd8c173fd5084e0f51ee6ac3eae8acff443f11f9168961cebf836e38f
+X-Noflux-Event-Type: new_entries
 
 {
   "event_type": "new_entries",
@@ -124,9 +122,9 @@ Save Entry Event Request
 POST /your-webhook-endpoint HTTP/1.1
 
 Content-Type: application/json
-User-Agent: Miniflux/2.0.48
-X-Miniflux-Signature: 7ff170cfd8c173fd5084e0f51ee6ac3eae8acff443f11f9168961cebf836e38f
-X-Miniflux-Event-Type: save_entry
+User-Agent: Noflux/2.0.48
+X-Noflux-Signature: 7ff170cfd8c173fd5084e0f51ee6ac3eae8acff443f11f9168961cebf836e38f
+X-Noflux-Event-Type: save_entry
 
 {
   "event_type": "save_entry",
@@ -174,4 +172,4 @@ X-Miniflux-Event-Type: save_entry
 Notes
 -----
 
-- Miniflux does not retry webhook events on request failures.
+- Noflux does not retry webhook events on request failures.

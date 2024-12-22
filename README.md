@@ -1,7 +1,7 @@
-Miniflux's Website
+Noflux's Website
 ==================
 
-Miniflux's website is a simple static HTML website generated with [Hugo](https://gohugo.io/).
+Noflux's website is a simple static HTML website generated with [Hugo](https://gohugo.io/).
 
 There is no Javascript or tracking at all.
 

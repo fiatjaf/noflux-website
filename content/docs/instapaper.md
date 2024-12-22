@@ -3,7 +3,7 @@ title: Instapaper Integration
 url: /docs/instapaper.html
 ---
 
-Miniflux can save articles to [Instapaper](https://www.instapaper.com/).
+Noflux can save articles to [Instapaper](https://www.instapaper.com/).
 
 ![Instapaper](/images/instapaper.png)
 

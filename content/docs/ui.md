@@ -10,10 +10,6 @@ url: /docs/ui.html
 - **Star/Unstar**: Add/Remove entry to/from bookmarks
 - **Original**: Open original entry link in a new tab
 
-<p class="info">
-Since Miniflux 2.0.7, the link "Save" will be shown only if at least one integration is configured.
-</p>
-
 <h2 id="article-view">Article View <a class="anchor" href="#article-view" title="Permalink">¶</a></h2>
 
 ![Article View](/images/entry_view.png)

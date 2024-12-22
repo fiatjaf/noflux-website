@@ -1,6 +1,6 @@
-baseURL = "https://miniflux.app/"
+baseURL = "https://noflux.nostr.technology/"
 languageCode = "en-us"
-title = "Miniflux"
+title = "Noflux"
 disableKinds = ["taxonomy", "term", "sitemap"]
 enableRobotsTXT = true
 
@@ -11,14 +11,9 @@ unsafe = true
 codeFences = false
 
 [author]
-name = "Frédéric Guillot"
-
-[outputFormats]
-[outputFormats.RSS]
-mediatype = "application/rss"
-baseName = "feed"
+name = "fiatjaf"
 
 [outputs]
 page = ["HTML"]
-home = ["HTML", "RSS"]
+home = ["HTML"]
 section = ["HTML"]

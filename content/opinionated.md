@@ -4,7 +4,7 @@ description: What makes this software different?
 url: opinionated.html
 ---
 
-Miniflux is a minimalist software. **The purpose of this application is to read feeds**. _Nothing else_.
+Noflux is a minimalist software. **The purpose of this application is to read feeds**. _Nothing else_.
 
 <h2 id="simplicity">Focus on Simplicity <a class="anchor" href="#simplicity" title="Permalink">¶</a></h2>
 
@@ -13,8 +13,8 @@ Miniflux is a minimalist software. **The purpose of this application is to read 
 
 <h2 id="ui">Why the user interface is ugly? <a class="anchor" href="#ui" title="Permalink">¶</a></h2>
 
-- The Miniflux layout is optimized to scan entries quickly.
-- The design of Miniflux is inspired by [Hacker News](https://news.ycombinator.com/), [Lobsters](https://lobste.rs/) and [Pinboard](https://pinboard.in/).
+- The Noflux layout is optimized to scan entries quickly.
+- The design of Noflux is inspired by [Hacker News](https://news.ycombinator.com/), [Lobsters](https://lobste.rs/) and [Pinboard](https://pinboard.in/).
 
 <h2 id="feature-request">Why are you not developing my feature request? <a class="anchor" href="#feature-request" title="Permalink">¶</a></h2>
 
@@ -37,19 +37,19 @@ Miniflux is a minimalist software. **The purpose of this application is to read 
 
 <h2 id="postgresql">Why PostgreSQL? <a class="anchor" href="#postgresql" title="Permalink">¶</a></h2>
 
-Miniflux is compatible only with [PostgreSQL](https://www.postgresql.org/).
+Noflux is compatible only with [PostgreSQL](https://www.postgresql.org/).
 
 - Supporting multiple databases increases the complexity of the software.
 - We do not have the resources to test the software with all major versions of MySQL, MariaDB, SQLite, and so on.
-- [SQLite](https://www.sqlite.org/) is excellent but there is a limited support of `ALTER TABLE` and the [Golang driver](https://github.com/mattn/go-sqlite3) requires [CGO](https://golang.org/cmd/cgo/) and [GCC](https://gcc.gnu.org/). Miniflux 2 was initially designed as [Twelve-Factor App](https://12factor.net/) to run in ephemeral containers.
+- [SQLite](https://www.sqlite.org/) is excellent but there is a limited support of `ALTER TABLE` and the [Golang driver](https://github.com/mattn/go-sqlite3) requires [CGO](https://golang.org/cmd/cgo/) and [GCC](https://gcc.gnu.org/). Noflux was initially designed as [Twelve-Factor App](https://12factor.net/) to run in ephemeral containers.
 - PostgreSQL is powerful, rock solid and battle tested.
 - PostgreSQL is a great independent open source software.
 - ORM abstracts interesting features provided by the database.
-- Miniflux uses `hstore/jsonb/inet` data types, window functions, full-text search and handles user timezones with PostgreSQL.
+- Noflux uses `hstore/jsonb/inet` data types, window functions, full-text search and handles user timezones with PostgreSQL.
 
 <h2 id="js-framework">Why no Javascript framework? <a class="anchor" href="#js-framework" title="Permalink">¶</a></h2>
 
-Miniflux uses Javascript only where it's necessary.
+Noflux uses Javascript only where it's necessary.
 
 - Server side template rendering is very simple and fast enough for that kind of application.
 - Using Javascript frameworks increase complexity.
@@ -58,7 +58,7 @@ Miniflux uses Javascript only where it's necessary.
 
 <h2 id="es6">Why only ECMAScript 6? <a class="anchor" href="#es6" title="Permalink">¶</a></h2>
 
-Miniflux uses [ECMAScript 6](https://en.wikipedia.org/wiki/ECMAScript#6th_Edition_-_ECMAScript_2015) and the Fetch API.
+Noflux uses [ECMAScript 6](https://en.wikipedia.org/wiki/ECMAScript#6th_Edition_-_ECMAScript_2015) and the Fetch API.
 
 - All modern browsers support ES6 nowadays.
 - Only Internet Explorer doesn't support ES6, but who cares?
@@ -69,7 +69,7 @@ Miniflux uses [ECMAScript 6](https://en.wikipedia.org/wiki/ECMAScript#6th_Editio
 
 Using the web UI on your smartphone is not so bad:
 
-- Miniflux is a [progressive web app](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps)
+- Noflux is a [progressive web app](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps)
 - The layout adapts to the screen size (responsive design)
 - You could add the application to the home screen like any native application
 - You can swipe entries horizontally to change their status
@@ -79,5 +79,5 @@ Using the web UI on your smartphone is not so bad:
 The development of mobile clients is left to the open source community:
 
 - Developing a native mobile application for each platform (iOS and Android) and different devices (smartphones and tablets) takes a lot of work
-- The main developer of Miniflux is not a mobile application developer
+- The main developer of Noflux is not a mobile application developer
 - You have to pay a fee to publish your app on the store even if your app doesn't make any money

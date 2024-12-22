@@ -3,7 +3,7 @@ title: Pocket Integration
 url: /docs/pocket.html
 ---
 
-To configure the Pocket integration on your own Miniflux instance, you
+To configure the Pocket integration on your own Noflux instance, you
 need to create an application on Pocket's website.
 
 Go to <https://getpocket.com/developer/apps/new> and create a new application.
@@ -33,7 +33,7 @@ ask for authorization.
 
 ![Pocket Authorization](/images/pocket_3.png)
 
-After the authorization is given, Miniflux will fetch the *Pocket Access
+After the authorization is given, Noflux will fetch the *Pocket Access
 Token* for you.
 
 If you prefer to fetch *Pocket Access Token* manually, the process is described in [Pocket's developer documentation](https://getpocket.com/developer/docs/authentication).

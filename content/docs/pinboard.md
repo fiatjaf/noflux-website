@@ -3,7 +3,7 @@ title: Pinboard Integration
 url: /docs/pinboard.html
 ---
 
-Miniflux can save articles to [Pinboard](https://pinboard.in/).
+Noflux can save articles to [Pinboard](https://pinboard.in/).
 
 ![Pinboard](/images/pinboard.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Requirements
-description: List of requirements to install and use Miniflux
+description: List of requirements to install and use Noflux
 url: docs/requirements.html
 ---
 <h2 id="operating-systems">Operating Systems <a class="anchor" href="#operating-systems" title="Permalink">¶</a></h2>
@@ -11,7 +11,7 @@ url: docs/requirements.html
 - [OpenBSD](https://github.com/golang/go/wiki/OpenBSD)
 - Windows
 
-<p class="info">All operating systems supported by Golang should work but Miniflux is mainly tested with Linux.</p>
+<p class="info">All operating systems supported by Golang should work but Noflux is mainly tested with Linux.</p>
 
 <h2 id="database">Database <a class="anchor" href="#database" title="Permalink">¶</a></h2>
 
