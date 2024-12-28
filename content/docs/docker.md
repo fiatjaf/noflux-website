@@ -14,11 +14,9 @@ This document describes how to use the Docker images of Noflux.
 
 **Docker Registries:**
 
-Docker images are published to three different container registries:
+Docker images are published to:
 
-- [Docker Hub Registry](https://hub.docker.com/r/noflux/noflux): `docker.io/noflux/noflux`
-- [GitHub Container Registry](https://github.com/fiatjaf/noflux/pkgs/container/noflux): `ghcr.io/noflux/noflux`
-- [Quay.io RedHat Container Registry](https://quay.io/repository/noflux/noflux): `quay.io/noflux/noflux`
+- [Docker Hub Registry](https://hub.docker.com/r/noflux/noflux): `docker.io/fiatjaf/noflux`
 
 **Docker Architectures:**
 
@@ -30,7 +28,7 @@ Docker images are published to three different container registries:
 **Docker Tags Naming Convention:**
 
 - `latest`: Latest stable version
-- `2.0.25`: Specific version
+- `0.0.9`: Specific version
 - `nightly`: Development version
 
 The recommendation is to use a pinned version to avoid unexpected updates.
