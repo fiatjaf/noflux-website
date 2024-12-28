@@ -6,7 +6,7 @@ url: features.html
 
 <h2 id="reader">Reader <a class="anchor" href="#reader" title="Permalink">¶</a></h2>
 
-- Supported feed formats: Atom 0.3/1.0, RSS 1.0/2.0, RDF, and JSON.
+- Supported feed formats: Nostr NIP-23, Atom 0.3/1.0, RSS 1.0/2.0, RDF, and JSON.
 - [OPML](https://en.wikipedia.org/wiki/OPML) file import/export and URL import.
 - Supports multiple enclosures/attachments (Podcasts, videos, music, and images).
 - Plays videos from YouTube channels directly inside Noflux.

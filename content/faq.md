@@ -5,8 +5,9 @@ url: /faq.html
 
 Table of Contents:
 
-- [Why are you not merging my pull-request?](#pull-request)
-- [Why are you not developing my feature request?](#feature-request)
+- [Why do you require a PostgreSQL instance to run?](#postgresql)
+- [Why mix Nostr and RSS feeds?](#nostr)
+- [How this Nostr client has so many unexpected features?](#features)
 - [Why Noflux stores favicons into the database?](#favicons-storage)
 - [How to create themes for Noflux?](#themes)
 - [Why there is no plugin system?](#plugins)
@@ -20,28 +21,19 @@ Table of Contents:
 - [Why SQL migrations are not executed automatically?](#sql-migrations)
 - [How to backup my data?](#backup)
 
-<h2 id="pull-request">Why are you not merging my pull-request? <a class="anchor" href="#pull-request" title="Permalink">¶</a></h2>
+<h2 id="nostr">Why mix Nostr and RSS feeds? <a class="anchor" href="#nostr" title="Permalink">¶</a></h2>
 
-List of things to avoid:
+Nostr's [NIP-23](https://nips.nostr.com/23) works very much like RSS, it's well suited for longer articles meant to be read asynchronously, like blog posts, and these articles can be fetched in a single Nostr request. The RSS approach to reading such articles is unmatched, therefore it only makes sense to include Nostr NIP-23 articles here alongside Atom and JSON feeds.
 
-- Making too many changes that would make the pull request very hard to review.
-- Introducing breaking changes.
-- Introducing new bugs, regressions, or security issues.
-- Adding unnecessary dependencies.
-- Slowing down the software.
-- Making changes that go against the philosophy of the software.
-- Having poor code quality.
-- Chaining pull requests that depend on each other.
-- Making radical user interface changes.
+<h2 id="features">How this Nostr client has so many unexpected features? <a class="anchor" href="#features" title="Permalink">¶</a></h2>
 
-<h2 id="feature-request">Why are you not developing my feature request? <a class="anchor" href="#feature-request" title="Permalink">¶</a></h2>
+Noflux is a fork of [Miniflux](https://miniflux.app), an RSS feed reader that exists since 2017 and has been perfecting itself since then and adding all sorts of interesting features and integrations.
 
-- Developing software takes a lot of time.
-- This is a free and open-source project, and no one owes you anything.
-- If you miss something, contribute to the project.
-- Don't expect anyone to work for free.
-- As mentioned previously, the number of features is intentionally limited. Nobody likes bloatware.
-- Improving existing features is more important than adding new ones.
+The rest of this FAQ is mostly a copy of Miniflux's FAQ.
+
+<h2 id="postgresql">Why do you require a PostgreSQL instance to run? <a class="anchor" href="#postgresql" title="Permalink">¶</a></h2>
+
+This was a design choice of [Miniflux](https://miniflux.app/) and we kept it even though it is annoying and makes things harder to run locally. In the future we may optionally embed a Postgres instance within the binary using [PGlite](https://pglite.dev/) and things will be brighter.
 
 <h2 id="favicons-storage">Why Noflux stores favicons into the database? <a class="anchor" href="#favicons-storage" title="Permalink">¶</a></h2>
 
